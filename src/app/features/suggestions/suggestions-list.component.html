@@ -1,4 +1,5 @@
 <div>
+  <button routerLink="/suggestions/add">Ajouter suggestion</button>
   <input [(ngModel)]="searchTerm" placeholder="Rechercher par titre ou catégorie" />
   <div *ngFor="let s of filteredSuggestions">
     <h3>{{ s.title }}</h3>

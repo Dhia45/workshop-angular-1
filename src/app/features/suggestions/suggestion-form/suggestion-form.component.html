@@ -1,0 +1,38 @@
+<form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Titre</label>
+    <input id="title" type="text" formControlName="title">
+    <div *ngIf="title?.invalid && title?.touched">
+      <div *ngIf="title?.errors?.['required']">Titre requis</div>
+      <div *ngIf="title?.errors?.['minlength']">Minimum 5 caractères</div>
+      <div *ngIf="title?.errors?.['pattern']">Doit commencer par majuscule et contenir que des lettres</div>
+    </div>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <div *ngIf="description?.invalid && description?.touched">
+      <div *ngIf="description?.errors?.['required']">Description requise</div>
+      <div *ngIf="description?.errors?.['minlength']">Minimum 30 caractères</div>
+    </div>
+  </div>
+  <div>
+    <label for="category">Catégorie</label>
+    <select id="category" formControlName="category">
+      <option value="">Sélectionner</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+    </select>
+    <div *ngIf="category?.invalid && category?.touched">
+      <div *ngIf="category?.errors?.['required']">Catégorie requise</div>
+    </div>
+  </div>
+  <div>
+    <label for="date">Date</label>
+    <input id="date" type="text" [value]="new Date().toLocaleDateString()" readonly>
+  </div>
+  <div>
+    <label for="status">Status</label>
+    <input id="status" type="text" value="en attente" readonly>
+  </div>
+  <button type="submit" [disabled]="!suggestionForm.valid">Soumettre</button>
+</form>

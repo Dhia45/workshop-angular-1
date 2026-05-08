@@ -12,6 +12,14 @@ export const suggestionsRoutes: Routes = [
 
   {
 
+    path: 'add',
+
+    loadComponent: () => import('./suggestion-form/suggestion-form.component').then(c => c.SuggestionFormComponent)
+
+  },
+
+  {
+
     path: ':id',
 
     loadComponent: () => import('./suggestion-details.component').then(c => c.SuggestionDetailsComponent)

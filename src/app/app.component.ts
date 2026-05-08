@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { ListSuggestion } from './core/list-suggestion/list-suggestion';
+import { Header } from './core/header/header';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ListSuggestion],
+  imports: [CommonModule, RouterOutlet, Header],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

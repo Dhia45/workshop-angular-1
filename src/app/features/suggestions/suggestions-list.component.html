@@ -1,0 +1,14 @@
+<div>
+  <input [(ngModel)]="searchTerm" placeholder="Rechercher par titre ou catégorie" />
+  <div *ngFor="let s of filteredSuggestions">
+    <h3>{{ s.title }}</h3>
+    <p>{{ s.description }}</p>
+    <p>Catégorie: {{ s.category }}</p>
+    <p>Date: {{ s.date | date }}</p>
+    <p>Status: {{ s.status }}</p>
+    <p>Likes: {{ s.nbLikes }}</p>
+    <button *ngIf="s.status !== 'refusee'" (click)="s.nbLikes = s.nbLikes + 1">Like</button>
+    <button *ngIf="s.status !== 'refusee'" (click)="addToFavorites(s)">Ajouter aux favoris</button>
+    <button routerLink="/suggestions/{{s.id}}">Details</button>
+  </div>
+</div>
